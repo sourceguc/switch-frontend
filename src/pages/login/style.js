@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   loginContainer: {
     zIndex: 5,
-    gap: "5em",
+    gap: "4em",
     marginTop: "2em",
   },
   buttonContainer: {
@@ -14,10 +14,11 @@ const useStyles = makeStyles({
     fontFamily: "Source",
     fontWeight: 400,
     FontSize: "34px",
+    zIndex: 5,
   },
   textContainer: {
     textAlign: "center",
-    Zindex:5
+    zIndex: 5,
   },
   paragraph: {
     fontSize: "12px",
@@ -26,6 +27,7 @@ const useStyles = makeStyles({
   background: {
     width: "100%",
     zIndex: 1,
+    height: 0,
   },
   arrow1: {
     position: "relative",
@@ -36,6 +38,7 @@ const useStyles = makeStyles({
     position: "relative",
     bottom: "7em",
     left: "5em",
+    opacity: 0,
     transform: "rotate(80deg)",
   },
   arrow3: {
@@ -64,7 +67,7 @@ const useStyles = makeStyles({
   arrow7: {
     position: "relative",
     bottom: "20em",
-    left: "4em",
+    left: "1em",
     transform: "rotate(270deg)",
   },
   arrow8: {
