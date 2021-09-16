@@ -3,7 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   loginContainer: {
     zIndex: 5,
-    gap: "4em",
+    gap: "4.5em",
     marginTop: "2em",
   },
   buttonContainer: {
@@ -31,7 +31,7 @@ const useStyles = makeStyles({
   },
   arrow1: {
     position: "relative",
-    bottom: "4em",
+    bottom: "5em",
     left: "0em",
   },
   arrow2: {
@@ -49,11 +49,12 @@ const useStyles = makeStyles({
   },
   arrow4: {
     position: "relative",
-    bottom: "1em",
-    left: "6em",
+    bottom: "4em",
+    left: "9em",
     transform: "rotate(198deg)",
   },
   arrow5: {
+    opacity: 0,
     position: "relative",
     bottom: "30em",
     left: "0em",
@@ -72,9 +73,20 @@ const useStyles = makeStyles({
   },
   arrow8: {
     position: "relative",
-    bottom: "29em",
-    left: "1em",
+    bottom: "27em",
+    left: "-2em",
     transform: "rotate(198deg)",
+  },
+  circle: {
+    width: "31em",
+    height: "31em",
+    borderRadius: "20em",
+    border: "1em",
+    backgroundColor: "rgb(0 0 0)",
+    position: "absolute",
+    top: "-9em",
+    left: "-2em",
+    zIndex: -1,
   },
 });
 

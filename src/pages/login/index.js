@@ -57,6 +57,7 @@ function Login() {
         <Arrow style={styles.arrow6} />
         <Arrow style={styles.arrow7} color="#23CE6B" />
         <Arrow style={styles.arrow8} color="#ED33B9" />
+        <div className={styles.circle} />
       </div>
     </div>
   );
