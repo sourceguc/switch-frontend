@@ -17,7 +17,7 @@ function Login() {
         justifyContent="center"
         alignItems="center"
         className={styles.loginContainer}>
-        <img src={Source} alt="switching people" />
+        <img src={Source} alt="switching people" style={{ zIndex: 5 }} />
         <Grid
           container
           direction="column"
@@ -47,18 +47,18 @@ function Login() {
           />
         </Grid>
         <PoweredBySource />
+        <div className={styles.background}>
+          <Arrow style={styles.arrow1} color="#FFF129" />
+          <Arrow style={styles.arrow2} />
+          <Arrow style={styles.arrow3} color="#23CE6B" />
+          <Arrow style={styles.arrow4} color="#ED33B9" />
+          <Arrow style={styles.arrow5} color="#FFF129" />
+          <Arrow style={styles.arrow6} />
+          <Arrow style={styles.arrow7} color="#23CE6B" />
+          <Arrow style={styles.arrow8} color="#ED33B9" />
+          <div className={styles.circle} />
+        </div>
       </Grid>
-      <div className={styles.background}>
-        <Arrow style={styles.arrow1} color="#FFF129" />
-        <Arrow style={styles.arrow2} />
-        <Arrow style={styles.arrow3} color="#23CE6B" />
-        <Arrow style={styles.arrow4} color="#ED33B9" />
-        <Arrow style={styles.arrow5} color="#FFF129" />
-        <Arrow style={styles.arrow6} />
-        <Arrow style={styles.arrow7} color="#23CE6B" />
-        <Arrow style={styles.arrow8} color="#ED33B9" />
-        <div className={styles.circle} />
-      </div>
     </div>
   );
 }
