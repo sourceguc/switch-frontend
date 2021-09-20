@@ -12,7 +12,7 @@ import Desired from "./DesiredTutorial";
 const postData = async (values) => {};
 
 function getSteps() {
-  return ["Aditional Information", "Desired Switch"];
+  return ["Additional Information", "Desired Switch"];
 }
 
 function getStepContent(stepIndex) {
