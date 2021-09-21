@@ -3,7 +3,6 @@ import Login from "./pages/form";
 import { ThemeProvider } from "@material-ui/core/styles";
 import Theme from "./theme";
 import useStyles from "./globalStyle";
-
 function App() {
   const theme = Theme;
   const style = useStyles();
@@ -11,7 +10,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className={style.root}>
-        <Login />
+       <Login />
       </div>
     </ThemeProvider>
   );
