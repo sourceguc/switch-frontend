@@ -33,6 +33,9 @@ export const useStyles = makeStyles({
   },
   appBar: {
     boxShadow: "none",
+  },
+  ionIcon: {
+    pointerEvents: "none",
   }
 });
 
