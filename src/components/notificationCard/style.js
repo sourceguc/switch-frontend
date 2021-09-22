@@ -8,12 +8,12 @@ export const useStyles = makeStyles((theme) => ({
     button: {
       borderColor: "#000000",
       backgroundColor: "#000000",
-      marginRight: "4px",
       boxShadow: "#62BF84"
     },
     container: {
       backgroundColor: "#000",
-    }
+      padding: "0.4em"
+    },
 }));
 
 export default useStyles;

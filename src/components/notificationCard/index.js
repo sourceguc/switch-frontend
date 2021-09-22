@@ -1,4 +1,4 @@
-import { Avatar, Divider, Grid } from '@material-ui/core';
+import { Avatar, Grid } from '@material-ui/core';
 import { Check, Clear } from '@material-ui/icons';
 import React from 'react'
 import useStyles from "./style";
@@ -13,8 +13,6 @@ function NotificationCard({request}) {
                 direction="column"
                 className={styles.container}
                 >
-                <Divider />
-                <br />
                 <Grid
                     container
                     direction="row"
@@ -33,17 +31,15 @@ function NotificationCard({request}) {
                         <br />
                         TO : {request.to.toUpperCase()}
                     </div>
-                    <div>
-                        <Button>
-                            <Check color="primary" fontSize="large" />
+                    <div >
+                        <Button className={styles.button}>
+                            <Check color="primary" fontSize="large"  />
                         </Button>
-                        <Button >
+                        <Button className={styles.button} >
                             <Clear color="primary" fontSize="large" />
                         </Button>
                     </div>
                 </Grid>
-                <br />
-                <Divider />
             </Grid>
     )
 }

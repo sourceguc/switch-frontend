@@ -2,52 +2,26 @@ import React from 'react'
 import useStyles from './styles'
 import NotificationCard from '../../components/notificationCard';
 import PoweredBySource from "../../components/poweredBySource";
+import NavBar from "../../components/navBar";
 import { Stack } from '@mui/material';
+import { Typography } from '@material-ui/core';
 
-const requests = [
-    {id: "https://avatars.githubusercontent.com/u/62481993?v=4",
-    name: "Shehab Solyman",
-    from: "T-24 G-01",
-    to: "T-17 G-02"},
-    {id:"https://avatars.githubusercontent.com/u/51823470?v=4",
-    name: "Aly Yasser",
-    from: "T-14 G-02",
-    to: "T-05 G-01"},
-    {id:"https://avatars.githubusercontent.com/u/68119650?v=4",
-    name: "Andrew Hany",
-    from: "T-31 G-03",
-    to: "T-07 G-02"},
-    {id:"https://avatars.githubusercontent.com/u/51823470?v=4",
-    name: "Aly Yasser",
-    from: "T-14 G-02",
-    to: "T-05 G-01"},
-    {id:"https://avatars.githubusercontent.com/u/68119650?v=4",
-    name: "Andrew Hany",
-    from: "T-31 G-03",
-    to: "T-07 G-02"},
-    {id:"https://avatars.githubusercontent.com/u/51823470?v=4",
-    name: "Aly Yasser",
-    from: "T-14 G-02",
-    to: "T-05 G-01"},
-    {id:"https://avatars.githubusercontent.com/u/68119650?v=4",
-    name: "Andrew Hany",
-    from: "T-31 G-03",
-    to: "T-07 G-02"},
-]
-
-function Notifications() {
+function Notifications({requests}) {
     const styles = useStyles();
     return (
         <div>
-            <h2 className={styles.title}>Switch me</h2>
+            <NavBar />
             <br />
-            <h2 className={styles.title}>Notifications</h2>
             <br />
+                <Typography className={styles.title}>
+                    Notifications
+                </Typography>
             <Stack
                 container
                 direction="column"
                 justifyContent="space-between"
                 alignItems="center"
+                className={styles.stack}
                 >
                     {requests.length>0 ? requests.map((request) => (
                         <>
@@ -55,14 +29,15 @@ function Notifications() {
                         <br />
                         </>
                     ))
-                    : <h3 className={styles.title}>No new notifications.</h3>
+                    : <Typography className={styles.noNotifications} >No new notifications.</Typography>
                     }
                 <br/>
-                    <div className={styles.sourcelogo} >
+            </Stack>
+            
+            <div className={styles.sourcelogo} >
                         <PoweredBySource />
                     </div>
                 <br />
-            </Stack>
         </div>
     )
 }
