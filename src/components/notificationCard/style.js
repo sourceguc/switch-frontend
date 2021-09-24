@@ -15,7 +15,9 @@ export const useStyles = makeStyles((theme) => ({
     },
     container: {
       backgroundColor: "#000",
-      padding: "0.4em"
+      padding: "0.4em",
+      borderTop: "1px solid #62BF84",
+      borderBottom: "1px solid #62BF84"
     },
     avatar: {
       width: "80px",
