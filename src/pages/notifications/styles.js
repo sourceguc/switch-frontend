@@ -1,6 +1,6 @@
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme) => ({
     title: {
       fontFamily: "Source",
       fontWeight: 400,
@@ -11,19 +11,29 @@ export const useStyles = makeStyles((theme) => ({
       top: "2.5em",
       position: "fixed",
       zIndex: "5",
+      [theme.breakpoints.up("md")]: {
+        textAlign: "-webkit-center",
+        top: "1em",
+        width: "10em !important auto",
+        fontSize: "2em",
+        
+      },
     },
     noNotifications: {
       fontFamily: "Source",
       fontWeight: 400,
       FontSize: "34px",
       width: "100%",
-      backgroundColor: "#1E1E1E",
+      backgroundColor: "secondary",
       padding: "1em",
       top: "2.5em",
       position: "fixed",
       zIndex: "5",
       marginTop: "3em",
-      textAlign: "center"
+      textAlign: "center",
+      [theme.breakpoints.up("md")]: {
+        fontSize: "2em"
+      }
     },
     sourcelogo: {
       position: "fixed",
@@ -31,11 +41,30 @@ export const useStyles = makeStyles((theme) => ({
       width: "100%",
       backgroundColor: "#1E1E1E",
       padding: "0.4em",
-      paddingLeft: "8em"
+      paddingLeft: "0.8em",
+      [theme.breakpoints.up("md")]: {
+        backgroundColor: "secondary",
+        width: "auto"
+      }
     },
     stack: {
-      marginTop: "3.6em"
-    }
+      marginTop: "3.6em",
+      [theme.breakpoints.up("md")]: {
+        width: "56em !important",
+        height: "56em",
+        borderWidth: "3px",
+        borderStyle: "solid",
+        borderImage:
+          "linear-gradient(to bottom, #62BF84, rgba(0, 0, 0, 0)) 1 100%",
+      },
+    },
+    container: {
+      [theme.breakpoints.up("md")]: {
+        textAlign: "-webkit-center",
+        height: "85%",
+        marginTop: "3.5em",
+      },
+    },
 }));
 
 export default useStyles;

@@ -21,7 +21,7 @@ function NotificationCard({request}) {
                     >
                     <Avatar
                         alt={request.name}
-                        style={{ width: 80, height: 80 }}
+                        className={styles.avatar}
                         src={request.id}
                         />
                     <div className={styles.paragraph}>
