@@ -1,17 +1,16 @@
 import React, { useState }  from 'react';
-import { Avatar, Grid, IconButton, Toolbar, Tooltip, Typography, Modal, Button, Collapse, Fade, Backdrop, useMediaQuery } from '@material-ui/core';
+import { Avatar, Grid, IconButton, Toolbar, Tooltip, Typography } from '@material-ui/core';
 import useStyles from "./style";
+import Button from "@material-ui/core/Button";
+import { Modal } from '@material-ui/core';
+import { Collapse } from '@material-ui/core';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@material-ui/icons';
+import { Fade } from '@material-ui/core';
+import { Backdrop } from '@material-ui/core';
 
-function SwitchCard({ switcher }) {
+function SwitchCard() {
 
     const styles = useStyles();
-    const upMd = useMediaQuery(theme => theme.breakpoints.up("md"));
-
-    const buttonProps = { size: upMd ? "large" : "small" };
-    const collapseProps = { collapsedSize: upMd ? 140 : 60 };
-    const arrowProps = { fontSize: upMd ? "large" : "medium"}
-    
     const [expanded, setExpanded] = useState(false);
     const [scheduleView, setScheduleView] = useState(false);
 
@@ -23,52 +22,44 @@ function SwitchCard({ switcher }) {
         setScheduleView(false);
       };
 
-
     return (
-        <Grid key={switcher.id} className={styles.main}>
         <Grid
             container
             direction="column"
             className={styles.container}
             >
             
-        <Collapse in={expanded} {...collapseProps} className={styles.collapse}>
-            <Toolbar className={styles.toolbar}>
+        <Collapse in={expanded} collapsedSize={60} className={styles.collapse}>
             <Grid
                 container
                 direction="row"
-                justifyContent="flex-start"
+                justifyContent="space-between"
                 alignItems="center"
                 >
                 <Avatar
-                    alt={switcher.name}
+                    alt="SHEHAB SOLYMAN"
                     className={styles.avatar}
-                    src={switcher.id}
                     />
-                <Grid item className={styles.paragraph}>
-                    <div>NAME : {switcher.name.toUpperCase()}</div>
-                    <div>FROM : {switcher.from.toUpperCase()}</div>
-                    <div>TO : {switcher.to.toUpperCase()}</div>
-                </Grid>
-                
-            </Grid>
-                <Grid item>
-                <Button {...buttonProps} variant="contained" color="primary" className={styles.request} >Request</Button>
-                </Grid>
-                <Grid item>
+                <div className={styles.paragraph}>
+                    NAME : SHEHAB SOLYMAN
+                    <br />
+                    FROM : TTT TTTT
+                    <br />
+                    TO : TTT TTTT
+                </div>
+                <Button size="large" variant="contained" color="primary" className={styles.request} >Request</Button>
                 <Button onClick={() => setExpanded(!expanded)} >
                         {!expanded? 
-                            <KeyboardArrowDown color="primary" {...arrowProps} />
+                            <KeyboardArrowDown color="primary" fontSize="large" />
                         : 
-                            <KeyboardArrowUp color="primary" {...arrowProps} />
+                            <KeyboardArrowUp color="primary" fontSize="large" />
                         }
                 </Button>
-                </Grid>
-            </Toolbar>
+            </Grid>
             <Toolbar>
                 <Typography className={styles.subtitle} >Schedule: </Typography>
                 </Toolbar>
-            <img alt="" src={switcher.schedule} className={styles.schedule} onClick={handleOpen} />
+            <img src="https://image.shutterstock.com/image-vector/people-planning-concept-entrepreneurship-calendar-260nw-1523635688.jpg" className={styles.schedule} onClick={handleOpen} />
             <br />
             <Modal
             open={scheduleView}
@@ -84,7 +75,7 @@ function SwitchCard({ switcher }) {
              >
                 <Fade in={scheduleView}>
                     <div className={styles.paper}>
-                        <img alt="" src={switcher.schedule} width="100%" />
+                        <img src="https://image.shutterstock.com/image-vector/people-planning-concept-entrepreneurship-calendar-260nw-1523635688.jpg" width="100%" />
                     </div>
                 </Fade>
             </Modal>
@@ -108,9 +99,6 @@ function SwitchCard({ switcher }) {
             </Toolbar>
             
         </Collapse>
-        </Grid>
-            
-        <br />
         </Grid>
     )
 }
