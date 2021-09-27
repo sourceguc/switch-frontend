@@ -7,9 +7,10 @@ export const useStyles = makeStyles({
   },
   sourceContainer: {
     display: "flex",
-    fontSize: "12px",
+    fontSize: "0.89em",
     alignItems: "center",
     gap: "5px",
+    marginTop: "2em",
   },
 });
 

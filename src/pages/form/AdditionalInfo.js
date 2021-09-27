@@ -1,70 +1,41 @@
 import React from "react";
-import { Field } from "react-final-form";
-import { OnChange } from "react-final-form-listeners";
-import { TextField, Select } from "final-form-material-ui";
-import { Typography, Paper, Grid, MenuItem } from "@material-ui/core";
+import TextField from "@material-ui/core/TextField";
+import Paper from "@material-ui/core/Paper";
+import useStyles from "./styles";
 
-const validate = (values) => {
-  const errors = {};
-  if (!values.notes) {
-    errors.notes = "Required";
-  }
-  if (!values.country) {
-    errors.country = "Required";
-  }
-  if (!values.city) {
-    errors.city = "Required";
-  }
-  return errors;
-};
-
-const Message = () => {
+function DesiredTutorial() {
+  const styles = useStyles();
+  const [group, setGroup] = React.useState("G-01");
+  const handleChangeGroup = (event) => {
+    setGroup(event.target.value);
+  };
+  const [tutorial, setTutorial] = React.useState("T-21");
+  const handleChangeTutorial = (event) => {
+    setTutorial(event.target.value);
+  };
   return (
-    <Typography align="center" gutterBottom>
-      Just Some additional Information to facilitate the switch!
-    </Typography>
-  );
-};
-
-function From({ form, handleSubmit, values }) {
-  return (
-    <form onSubmit={handleSubmit} noValidate>
-      <OnChange name="country">
-        {(value) => {
-          form.reset({
-            ...values,
-            city: null,
-            country: value,
-          });
-        }}
-      </OnChange>
-
-      <Paper style={{ padding: 16 }}>
-        <Grid container alignItems="flex-start" spacing={8}>
-          <Grid item xs={12}>
-            <Field
-              fullWidth
-              name="GUC-Email"
-              component={TextField}
-              label="GUC Email"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Field
-              fullWidth
-              name="Password"
-              component={TextField}
-              type="password"
-              label="password"
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <Field fullWidth name="Major" component={TextField} label="Major" />
-          </Grid>
-        </Grid>
+    <div>
+      <Paper elevation={3} className={styles.paperContainer}>
+        <TextField
+          id="group"
+          label="Group"
+          defaultValue={group}
+          helperText="Enter Desired Group"
+          variant="outlined"
+          onChange={handleChangeGroup}
+          className={styles.textField}
+        />
+        <TextField
+          id="tutorial"
+          label="Tutorial"
+          defaultValue={tutorial}
+          helperText="Enter Desired Tutorial1"
+          variant="outlined"
+          onChange={handleChangeTutorial}
+        />
       </Paper>
-    </form>
+    </div>
   );
 }
 
-export { From, Message, validate };
+export default DesiredTutorial;
