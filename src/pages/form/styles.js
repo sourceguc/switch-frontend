@@ -11,11 +11,22 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(1),
   },
   paperContainer: {
-    padding: "2em",
+    padding: "3em",
     margin: "1em",
+    gap: "2em",
+    width: "50%",
+  },
+  textFieldGrid: {
+    gap: "2em",
+  },
+  error: {
+    color: "red",
+    textAlign: "-webkit-center",
   },
   textField: {
-    marginBottom: "3em !important",
+    [theme.breakpoints.up("sm")]: {
+      width: "50%",
+    },
   },
 }));
 

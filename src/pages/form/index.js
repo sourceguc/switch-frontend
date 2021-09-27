@@ -16,6 +16,7 @@ function getSteps() {
 export default function HorizontalLabelPositionBelowStepper() {
   const styles = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const [error, setError] = React.useState(false);
   const steps = getSteps();
   //Additional Info
   const [email, setEmail] = React.useState("");
@@ -26,9 +27,91 @@ export default function HorizontalLabelPositionBelowStepper() {
   const handleChangePassword = (event) => {
     setPassword(event.target.value);
   };
-  const [major, setMajor] = React.useState("");
+  const [major, setMajor] = React.useState("Computer Science");
   const handleChangeMajor = (event) => {
     setMajor(event.target.value);
+  };
+  const majors = [
+    {
+      value: "Computer Science",
+      label: "Computer Science",
+    },
+    {
+      value: "Digital Media Engineering Technology",
+      label: "Digital Media Engineering Technology",
+    },
+    {
+      value: "Networks",
+      label: "Networks",
+    },
+    {
+      value: "Communication",
+      label: "Communication",
+    },
+    {
+      value: "Electronics",
+      label: "Electronics",
+    },
+    {
+      value: "Material Engineeering",
+      label: "Material Engineeering",
+    },
+    {
+      value: "Design and Production Engineering",
+      label: "Design and Production Engineering",
+    },
+    {
+      value: "Mechatronics",
+      label: "Mechatronics",
+    },
+    {
+      value: "Civil Engineering",
+      label: "Civil Engineering",
+    },
+    {
+      value: "Architecture Engineering",
+      label: "Architecture Engineering",
+    },
+    {
+      value: "Pharmacy and Biotechnologies",
+      label: "Pharmacy and Biotechnologies",
+    },
+    {
+      value: "Biotechnology",
+      label: "Biotechnology",
+    },
+    {
+      value: "General Management",
+      label: "General Management",
+    },
+    {
+      value: "Business Informatics",
+      label: "Business Informatics",
+    },
+    {
+      value: "Technology-based Management",
+      label: "Technology-based Management",
+    },
+    {
+      value: "Graphics Design",
+      label: "Graphics Design",
+    },
+    {
+      value: "Media Design",
+      label: "Media Design",
+    },
+    {
+      value: "Product Design",
+      label: "Product Design",
+    },
+    {
+      value: "Law",
+      label: "Law",
+    },
+  ];
+  const [phone, setPhone] = React.useState("");
+  const handleChangePhone = (event) => {
+    setPhone(event.target.value);
   };
   //Desired Switch
   const [group, setGroup] = React.useState("");
@@ -49,15 +132,22 @@ export default function HorizontalLabelPositionBelowStepper() {
               container
               alignItems="center"
               justiyContent="center"
-              direction="column">
+              direction="column"
+              required
+              className={styles.textFieldGrid}>
+              <h3 style={{ fontWeight: 100 }}>
+                Please Enter The Infromation Needed To Facilitate the Switching
+                process!
+              </h3>
               <TextField
                 id="email"
                 label="GUC Email"
                 defaultValue={email}
                 helperText="Enter you GUC Email"
-                variant="outlined"
+                required
                 onChange={handleChangeEmail}
                 className={styles.textField}
+                error={error && email === ""}
               />
               <TextField
                 id="password"
@@ -65,28 +155,43 @@ export default function HorizontalLabelPositionBelowStepper() {
                 defaultValue={password}
                 type={"password"}
                 helperText="Enter you GUC Password"
-                variant="outlined"
                 onChange={handleChangePassword}
                 className={styles.textField}
+                required
+                error={error && password === ""}
               />
               <TextField
-                id="Major"
+                id="major"
+                select
                 label="Major"
-                defaultValue={major}
-                helperText="Enter you Major"
-                variant="outlined"
+                value={major}
                 onChange={handleChangeMajor}
+                required
+                SelectProps={{
+                  native: true,
+                }}
+                helperText="Select you Major"
+                className={styles.textField}>
+                {majors.map((option) => (
+                  <option key={option.value} value={option.value}>
+                    {option.label}
+                  </option>
+                ))}
+              </TextField>
+              <TextField
+                id="phone"
+                label="Mobile Number"
+                defaultValue={phone}
+                helperText="Enter a valid Whatsapp number"
+                required
+                onChange={handleChangePhone}
                 className={styles.textField}
-              />
-              <TextField
-                id="Major"
-                label="Major"
-                defaultValue={major}
-                helperText="Enter you Major"
-                variant="outlined"
-                onChange={handleChangeMajor}
+                error={error && phone === ""}
               />
             </Grid>
+            {error && (
+              <p className={styles.error}>Please fill all required forms!</p>
+            )}
           </Paper>
         );
       case 1:
@@ -96,13 +201,18 @@ export default function HorizontalLabelPositionBelowStepper() {
               container
               alignItems="center"
               justiyContent="center"
-              direction="column">
+              direction="column"
+              className={styles.textFieldGrid}>
+              <h3 style={{ fontWeight: 100, textAlign: "center" }}>
+                The following Info Is Not Required, But Would Help Us Find You
+                <br />
+                The Best Matches As Soon As Possible!
+              </h3>
               <TextField
                 id="group"
                 label="Group"
                 defaultValue={group}
                 helperText="Enter Desired Group"
-                variant="outlined"
                 onChange={handleChangeGroup}
                 className={styles.textField}
               />
@@ -111,8 +221,8 @@ export default function HorizontalLabelPositionBelowStepper() {
                 label="Tutorial"
                 defaultValue={tutorial}
                 helperText="Enter Desired Tutorial"
-                variant="outlined"
                 onChange={handleChangeTutorial}
+                className={styles.textField}
               />
             </Grid>
           </Paper>
@@ -123,7 +233,15 @@ export default function HorizontalLabelPositionBelowStepper() {
   }
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    if (
+      (activeStep === 0) &
+      (phone === "" || email === "" || password === "" || major === "")
+    ) {
+      setError(true);
+    } else {
+      setError(false);
+      setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    }
   };
 
   const handleBack = () => {
