@@ -142,7 +142,7 @@ export default function HorizontalLabelPositionBelowStepper() {
               <TextField
                 id="email"
                 label="GUC Email"
-                defaultValue={email}
+                value={email}
                 helperText="Enter you GUC Email"
                 required
                 onChange={handleChangeEmail}
@@ -152,7 +152,7 @@ export default function HorizontalLabelPositionBelowStepper() {
               <TextField
                 id="password"
                 label="GUC Password"
-                defaultValue={password}
+                value={password}
                 type={"password"}
                 helperText="Enter you GUC Password"
                 onChange={handleChangePassword}
@@ -181,7 +181,7 @@ export default function HorizontalLabelPositionBelowStepper() {
               <TextField
                 id="phone"
                 label="Mobile Number"
-                defaultValue={phone}
+                value={phone}
                 helperText="Enter a valid Whatsapp number"
                 required
                 onChange={handleChangePhone}
@@ -211,7 +211,7 @@ export default function HorizontalLabelPositionBelowStepper() {
               <TextField
                 id="group"
                 label="Group"
-                defaultValue={group}
+                value={group}
                 helperText="Enter Desired Group"
                 onChange={handleChangeGroup}
                 className={styles.textField}
@@ -219,7 +219,7 @@ export default function HorizontalLabelPositionBelowStepper() {
               <TextField
                 id="tutorial"
                 label="Tutorial"
-                defaultValue={tutorial}
+                value={tutorial}
                 helperText="Enter Desired Tutorial"
                 onChange={handleChangeTutorial}
                 className={styles.textField}
