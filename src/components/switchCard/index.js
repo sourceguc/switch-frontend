@@ -8,7 +8,7 @@ import { KeyboardArrowDown, KeyboardArrowUp } from '@material-ui/icons';
 import { Fade } from '@material-ui/core';
 import { Backdrop } from '@material-ui/core';
 
-function SwitchCard() {
+function SwitchCard({ switcher }) {
 
     const styles = useStyles();
     const [expanded, setExpanded] = useState(false);
@@ -22,7 +22,9 @@ function SwitchCard() {
         setScheduleView(false);
       };
 
+
     return (
+        <Grid key={switcher.id}>
         <Grid
             container
             direction="column"
@@ -37,29 +39,35 @@ function SwitchCard() {
                 alignItems="center"
                 >
                 <Avatar
-                    alt="SHEHAB SOLYMAN"
+                    alt={switcher.name}
                     className={styles.avatar}
+                    src={switcher.id}
                     />
                 <div className={styles.paragraph}>
-                    NAME : SHEHAB SOLYMAN
+                    NAME : {switcher.name.toUpperCase()}
                     <br />
-                    FROM : TTT TTTT
+                    FROM : {switcher.from.toUpperCase()}
                     <br />
-                    TO : TTT TTTT
+                    TO : {switcher.to.toUpperCase()}
                 </div>
-                <Button size="large" variant="contained" color="primary" className={styles.request} >Request</Button>
+                <Grid
+                    direction="row"
+                    alignContent="flex-end"
+                >
+                <Button size="small" variant="contained" color="primary" className={styles.request} >Request</Button>
                 <Button onClick={() => setExpanded(!expanded)} >
                         {!expanded? 
-                            <KeyboardArrowDown color="primary" fontSize="large" />
+                            <KeyboardArrowDown color="primary" fontSize="medium" />
                         : 
-                            <KeyboardArrowUp color="primary" fontSize="large" />
+                            <KeyboardArrowUp color="primary" fontSize="medium" />
                         }
                 </Button>
+                </Grid>
             </Grid>
             <Toolbar>
                 <Typography className={styles.subtitle} >Schedule: </Typography>
                 </Toolbar>
-            <img src="https://image.shutterstock.com/image-vector/people-planning-concept-entrepreneurship-calendar-260nw-1523635688.jpg" className={styles.schedule} onClick={handleOpen} />
+            <img alt="" src={switcher.schedule} className={styles.schedule} onClick={handleOpen} />
             <br />
             <Modal
             open={scheduleView}
@@ -75,7 +83,7 @@ function SwitchCard() {
              >
                 <Fade in={scheduleView}>
                     <div className={styles.paper}>
-                        <img src="https://image.shutterstock.com/image-vector/people-planning-concept-entrepreneurship-calendar-260nw-1523635688.jpg" width="100%" />
+                        <img alt="" src={switcher.schedule} width="100%" />
                     </div>
                 </Fade>
             </Modal>
@@ -99,6 +107,9 @@ function SwitchCard() {
             </Toolbar>
             
         </Collapse>
+        </Grid>
+            
+        <br />
         </Grid>
     )
 }
