@@ -10,6 +10,7 @@ export const useStyles = makeStyles((theme)=>({
   gridIcons:{
     width:"40%",
     gap:"0.5em",
+    marginRight:"1em",
     [theme.breakpoints.up("md")]: {
       gap: "1.5em"
     }
@@ -37,6 +38,16 @@ export const useStyles = makeStyles((theme)=>({
     minWidth: "1.2em",
     width: "1.3em",
     height: "1.3em",
+  },
+  modal: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width:'100%'
+  },
+  paper: {
+    outline:'0',
+    textAlign: '-webkit-center'
+    
   }
 }));
 
