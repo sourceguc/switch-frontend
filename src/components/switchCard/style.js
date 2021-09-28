@@ -18,10 +18,11 @@ export const useStyles = makeStyles((theme) => ({
         boxShadow: "#62BF84",
       },
       request: {
-        color: "#FFFFFF"
+        color: "#FFFFFF",
       },
     container: {
       backgroundColor: "#000",
+      width: "24.5em",
       padding: "0.4em",
       border: '1px solid #62BF84',
     },
@@ -40,7 +41,7 @@ export const useStyles = makeStyles((theme) => ({
           }
       },
     schedule: {
-        width: "300px",
+        width: "320px",
         [theme.breakpoints.up("md")]: {
             width: "450px",
         }

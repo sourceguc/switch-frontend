@@ -11,7 +11,7 @@ function Notifications({ requests }) {
     <Grid
       container
       alignItems="center"
-      justiyContent="center"
+      justifyContent="center"
       direction="column">
       <NavBar />
       <Grid
