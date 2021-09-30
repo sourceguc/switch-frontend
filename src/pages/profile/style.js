@@ -11,7 +11,7 @@ export const useStyles = makeStyles((theme)=>({
         borderImage:
         "linear-gradient(to bottom, #62BF84, rgba(0, 0, 0, 0)) 1 100%",
         width:'99%',
-        marginLeft:'0.3em'
+        marginLeft:'0.3em',
     },
     },
     profile: {
@@ -78,7 +78,31 @@ export const useStyles = makeStyles((theme)=>({
         },
     },
     schedule: {
-        marginTop: '1em'
+        marginTop: '1em',
+        position: 'relative'
+    },
+    scheduleModal: {
+        width: '95%',
+        position: 'absolute',
+        top:'14em',       
+        [theme.breakpoints.only("xs")]: {
+            left:'0.5em',
+        },
+        [theme.breakpoints.only("sm")]: {
+            left:'0.9em',
+        },
+        [theme.breakpoints.only("md")]: {
+            left:'1.6em',
+        },
+        [theme.breakpoints.only("lg")]: {
+            width:'70%',
+            left: '12em'
+        },
+        [theme.breakpoints.only("xl")]: {
+            width:'70%',
+            left: '18em'
+        },
+        
     },
     other: {
         marginTop: '3em'
@@ -91,7 +115,17 @@ export const useStyles = makeStyles((theme)=>({
     },
     textField: {
         marginLeft:'1em !important',
-    }
+    },
+
+    modal: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        width:'100%'
+    },
+    paper: {
+        outline:'0',
+        textAlign: '-webkit-center'
+  },
 
 }));
 

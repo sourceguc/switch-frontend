@@ -1,7 +1,7 @@
-import React from 'react'
+import React, {useState} from 'react'
 import useStyles from "./style";
 import NavBar from "../../components/navBar"
-import { Typography, Grid, Avatar, Button, TextField } from "@material-ui/core"
+import { Typography, Grid, Avatar, Button, TextField, Modal, Backdrop, Fade } from "@material-ui/core"
 import Connections from "../../components/button/IconButton"
 import PoweredBySource from "../../components/poweredBySource"
 import Image from "../../assets/Images/Avatar.png"
@@ -13,8 +13,17 @@ function Profile() {
     name: "Andrew Hany",
     phone: "01114115911",
     major: "Media Engineering and Technology"
-  }
+    }
+
+    const [modalView, setModalView] = useState(false)
+    const handleOpen = () => (
+        setModalView(true)
+    )
+    const handleClose = () => (
+        setModalView(false)
+    )
     return (
+        
         <Grid
         container
         direction="column"
@@ -41,16 +50,6 @@ function Profile() {
        </Grid>  
 
         <Grid item className={styles.info}>
-           <Typography>New Password:</Typography>
-           <TextField variant="outlined" size="small" className={styles.textField}></TextField>
-       </Grid>  
-
-        <Grid item className={styles.info}>
-           <Typography>Confirm Password:</Typography>
-           <TextField variant="outlined" size="small" className={styles.textField}></TextField>
-       </Grid>  
-
-        <Grid item className={styles.info}>
            <Typography>Phone Number:</Typography>
            <TextField variant="outlined" size="small" defaultValue={user.phone} className={styles.textField}></TextField>
        </Grid>
@@ -60,7 +59,7 @@ function Profile() {
        </Grid>
 
         <Grid item>
-           <img className={styles.schedule} src={Schedule} alt="Your schedule"/>
+           <img className={styles.schedule} src={Schedule} alt="Your schedule" onClick={handleOpen}/>
        </Grid>
 
        <Grid item className={styles.other}>
@@ -87,6 +86,25 @@ function Profile() {
             <PoweredBySource/>
         </div>
         
+        <Modal
+                open={modalView}
+                onClose={handleClose}
+                aria-labelledby="transition-modal-title"
+                aria-describedby="transition-modal-description"
+                className={styles.modal}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                    timeout:500
+                }}>
+
+                <Fade in={modalView}>
+                    <div className={styles.paper}>
+                       <img className={styles.scheduleModal} src={Schedule} alt="Your schedule"/>
+                    </div>
+                </Fade>
+            </Modal> 
+
         </Grid>
     )
 }
