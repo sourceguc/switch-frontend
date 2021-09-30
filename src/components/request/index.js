@@ -25,7 +25,7 @@ function Request() {
     });
 
     return (
-        <div style={{}}>
+        <div>
         <div className={styles.border}>
         <CustomField 
             label="From"
@@ -49,7 +49,7 @@ function Request() {
                 style: { color: 'white' },
             }}/>
 
-            <div className={styles.text} style={{}}>Create Request</div>
+            <div className={styles.text}>Create Request</div>
 
             <Button variant="contained" color="primary" className={styles.button}>Create</Button>
         </div>
