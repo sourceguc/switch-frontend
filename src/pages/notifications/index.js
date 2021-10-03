@@ -38,7 +38,7 @@ function Notifications({ requests }) {
           </Typography>
         )}
         <div className={styles.sourcelogo}></div>
-        <div style={{position: "fixed", bottom: "0.8em"}} >
+        <div className={styles.poweredbysource} >
             <PoweredBySource />
         </div>
       </Grid>

@@ -65,6 +65,10 @@ const useStyles = makeStyles((theme) => ({
       [theme.breakpoints.up("md")]: {
         height: "5.7em",
       },
+    },
+    poweredbysource: {
+      position: "fixed",
+      bottom: "0.8em"
     }
 }));
 
