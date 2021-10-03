@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
         
       },
     },
+    searchgroup: {
+      width: "100%"
+    },
     noNotifications: {
       fontFamily: "Source",
       fontWeight: 400,
@@ -42,16 +45,15 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#1E1E1E",
       padding: "0.4em",
       paddingTop: "3em",
-      [theme.breakpoints.up("md")]: {
-        backgroundColor: "secondary",
-        width: "auto"
-      }
+    },
+    poweredbysource: {
+      position: "fixed",
+      bottom: "0.8em"
     },
     stack: {
       marginTop: "3.6em",
       [theme.breakpoints.up("md")]: {
         width: "56em !important",
-        height: "56em",
         borderWidth: "3px",
         borderStyle: "solid",
         borderImage:
@@ -70,7 +72,7 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
         width: '100%',
       },
-      width: "95%"
+      width: "95%",
       },
     buttons: {
       paddingLeft: "1em"

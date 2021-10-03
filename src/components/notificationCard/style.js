@@ -4,6 +4,9 @@ export const useStyles = makeStyles((theme) => ({
     main: {
       width: "100%",
     },
+    toolbar: {
+      padding: "0em"
+    },
     paragraph: {
         paddingLeft: "2em",
         fontSize: "12px",
