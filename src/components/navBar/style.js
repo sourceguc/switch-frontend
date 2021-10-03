@@ -20,13 +20,14 @@ export const useStyles = makeStyles((theme)=>({
     flex:"1",
   },
   text: {
-    fontFamily: "Source",
+    fontFamily: "Source !important",
     [theme.breakpoints.up("md")]: {
-      fontSize: "2em"
+      fontSize: "2em !important"
     }
   },
   appBar: {
-    boxShadow: "none",
+    boxShadow: "none !important",
+    display:'flex'
   },
   ionIcon: {
     pointerEvents: "none",
@@ -48,7 +49,7 @@ export const useStyles = makeStyles((theme)=>({
     outline:'0',
     textAlign: '-webkit-center'
     
-  }
+  },
 }));
 
 export default useStyles;
