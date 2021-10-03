@@ -11,22 +11,23 @@ function Notifications({ requests }) {
     <Grid
       container
       alignItems="center"
-      justiyContent="center"
+      justifyContent="center"
       direction="column">
       <NavBar />
       <Grid
         container
         direction="column"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="flex-start"
         className={styles.stack}>
-        <Typography className={styles.title}>Notifications:</Typography>
+        <Typography className={styles.title}>Notifications</Typography>
+        <div className={styles.spacer}></div>
         {requests ? (
           requests.length > 0 ? (
-            requests.map((request) => <NotificationCard request={request} />)
+            requests.map((request) => <NotificationCard key={request.id} request={request} />)
           ) : (
             <Typography className={styles.noNotifications}>
-              No new notifications
+              No New Notifications
             </Typography>
           )
         ) : (
@@ -36,8 +37,11 @@ function Notifications({ requests }) {
             Please Contact Support!
           </Typography>
         )}
+        <div className={styles.sourcelogo}></div>
+        <div className={styles.poweredbysource} >
+            <PoweredBySource />
+        </div>
       </Grid>
-      <PoweredBySource />
     </Grid>
   );
 }

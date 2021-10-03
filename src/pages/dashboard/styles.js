@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
       fontFamily: "Source",
       fontWeight: 400,
       FontSize: "34px",
-      width: "93%",
+      width: "100%",
       backgroundColor: "#1E1E1E",
       padding: "1em",
       top: "2.5em",
@@ -19,6 +19,9 @@ const useStyles = makeStyles((theme) => ({
         
       },
     },
+    searchgroup: {
+      width: "100%"
+    },
     noNotifications: {
       fontFamily: "Source",
       fontWeight: 400,
@@ -26,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       backgroundColor: "secondary",
       padding: "1em",
-      top: "2.5em",
+      top: "7em",
       position: "fixed",
       zIndex: "5",
       marginTop: "3em",
@@ -42,6 +45,10 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#1E1E1E",
       padding: "0.4em",
       paddingTop: "3em",
+    },
+    poweredbysource: {
+      position: "fixed",
+      bottom: "0.8em"
     },
     stack: {
       marginTop: "3.6em",
@@ -60,16 +67,16 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "3.5em",
       },
     },
-    spacer: {
-      height: "2.4em",
-      [theme.breakpoints.up("md")]: {
-        height: "5.7em",
+    searchOutline: {
+      '& > *': {
+        margin: theme.spacing(1),
+        width: '100%',
       },
-    },
-    poweredbysource: {
-      position: "fixed",
-      bottom: "0.8em"
-    }
+      width: "95%",
+      },
+    buttons: {
+      paddingLeft: "1em"
+      }
 }));
 
 export default useStyles;

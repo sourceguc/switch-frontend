@@ -1,9 +1,16 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
+    main: {
+      width: "100%",
+    },
+    toolbar: {
+      padding: "0em"
+    },
     paragraph: {
+        paddingLeft: "2em",
         fontSize: "12px",
-        textAlign: 'left',
+        textAlign: '-webkit-left',
         [theme.breakpoints.up("md")]: {
           fontSize: "20px"
         }
