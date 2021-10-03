@@ -14,13 +14,16 @@ function Dashboard({switchers}) {
 
     const handleChange = (event) => {
       setSearch(event.target.value)
-      if(event.target.value === ""){
+      console.log(search)
+      if(search === ""){
         setResults(switchers)
       }
       else{
         var res = []
         if(radioValue==="From"){
-          res = results.filter(user => user.from.includes(search));
+          res = results.filter((user) => {
+            return user.from.toLowerCase().includes(search.toLowerCase());
+          });
         }
         else if(radioValue==="To"){
           res = results.filter(user => user.to.includes(search));

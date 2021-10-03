@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
       fontFamily: "Source",
       fontWeight: 400,
       FontSize: "34px",
-      width: "100%",
+      width: "93%",
       backgroundColor: "#1E1E1E",
       padding: "1em",
       top: "2.5em",
@@ -41,17 +41,12 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       backgroundColor: "#1E1E1E",
       padding: "0.4em",
-      paddingLeft: "0.8em",
-      [theme.breakpoints.up("md")]: {
-        backgroundColor: "secondary",
-        width: "auto"
-      }
+      paddingTop: "3em",
     },
     stack: {
       marginTop: "3.6em",
       [theme.breakpoints.up("md")]: {
         width: "56em !important",
-        height: "56em",
         borderWidth: "3px",
         borderStyle: "solid",
         borderImage:
@@ -65,6 +60,12 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "3.5em",
       },
     },
+    spacer: {
+      height: "2.4em",
+      [theme.breakpoints.up("md")]: {
+        height: "5.7em",
+      },
+    }
 }));
 
 export default useStyles;

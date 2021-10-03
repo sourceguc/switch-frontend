@@ -1,16 +1,15 @@
 import React, { useState }  from 'react';
-import { Avatar, Grid, IconButton, Toolbar, Tooltip, Typography } from '@material-ui/core';
+import { Avatar, Grid, IconButton, Toolbar, Tooltip, Typography, Modal, Button, Collapse, Fade, Backdrop, useMediaQuery } from '@material-ui/core';
 import useStyles from "./style";
-import Button from "@material-ui/core/Button";
-import { Modal } from '@material-ui/core';
-import { Collapse } from '@material-ui/core';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@material-ui/icons';
-import { Fade } from '@material-ui/core';
-import { Backdrop } from '@material-ui/core';
 
 function SwitchCard({ switcher }) {
 
     const styles = useStyles();
+    const upMd = useMediaQuery(theme => theme.breakpoints.up("md"));
+
+    const buttonProps = { size: upMd ? "large" : "small" };
+    
     const [expanded, setExpanded] = useState(false);
     const [scheduleView, setScheduleView] = useState(false);
 
@@ -54,7 +53,7 @@ function SwitchCard({ switcher }) {
                     direction="row"
                     alignContent="flex-end"
                 >
-                <Button size="small" variant="contained" color="primary" className={styles.request} >Request</Button>
+                <Button {...buttonProps} variant="contained" color="primary" className={styles.request} >Request</Button>
                 <Button onClick={() => setExpanded(!expanded)} >
                         {!expanded? 
                             <KeyboardArrowDown color="primary" fontSize="medium" />
