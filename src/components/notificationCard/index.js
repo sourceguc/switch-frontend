@@ -14,7 +14,7 @@ function NotificationCard({request}) {
                 direction="column"
                 className={styles.container}
                 >
-                <Toolbar style={{ padding: "0em"}}>
+                <Toolbar className={styles.toolbar}>
                     <Grid
                         container
                         direction="row"

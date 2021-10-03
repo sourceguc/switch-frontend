@@ -9,6 +9,8 @@ function SwitchCard({ switcher }) {
     const upMd = useMediaQuery(theme => theme.breakpoints.up("md"));
 
     const buttonProps = { size: upMd ? "large" : "small" };
+    const collapseProps = { collapsedSize: upMd ? 140 : 60 };
+    const arrowProps = { fontSize: upMd ? "large" : "medium"}
     
     const [expanded, setExpanded] = useState(false);
     const [scheduleView, setScheduleView] = useState(false);
@@ -23,18 +25,19 @@ function SwitchCard({ switcher }) {
 
 
     return (
-        <Grid key={switcher.id}>
+        <Grid key={switcher.id} className={styles.main}>
         <Grid
             container
             direction="column"
             className={styles.container}
             >
             
-        <Collapse in={expanded} collapsedSize={60} className={styles.collapse}>
+        <Collapse in={expanded} {...collapseProps} className={styles.collapse}>
+            <Toolbar className={styles.toolbar}>
             <Grid
                 container
                 direction="row"
-                justifyContent="space-between"
+                justifyContent="flex-start"
                 alignItems="center"
                 >
                 <Avatar
@@ -42,27 +45,26 @@ function SwitchCard({ switcher }) {
                     className={styles.avatar}
                     src={switcher.id}
                     />
-                <div className={styles.paragraph}>
-                    NAME : {switcher.name.toUpperCase()}
-                    <br />
-                    FROM : {switcher.from.toUpperCase()}
-                    <br />
-                    TO : {switcher.to.toUpperCase()}
-                </div>
-                <Grid
-                    direction="row"
-                    alignContent="flex-end"
-                >
+                <Grid item className={styles.paragraph}>
+                    <div>NAME : {switcher.name.toUpperCase()}</div>
+                    <div>FROM : {switcher.from.toUpperCase()}</div>
+                    <div>TO : {switcher.to.toUpperCase()}</div>
+                </Grid>
+                
+            </Grid>
+                <Grid item>
                 <Button {...buttonProps} variant="contained" color="primary" className={styles.request} >Request</Button>
+                </Grid>
+                <Grid item>
                 <Button onClick={() => setExpanded(!expanded)} >
                         {!expanded? 
-                            <KeyboardArrowDown color="primary" fontSize="medium" />
+                            <KeyboardArrowDown color="primary" {...arrowProps} />
                         : 
-                            <KeyboardArrowUp color="primary" fontSize="medium" />
+                            <KeyboardArrowUp color="primary" {...arrowProps} />
                         }
                 </Button>
                 </Grid>
-            </Grid>
+            </Toolbar>
             <Toolbar>
                 <Typography className={styles.subtitle} >Schedule: </Typography>
                 </Toolbar>

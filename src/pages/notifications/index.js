@@ -27,7 +27,7 @@ function Notifications({ requests }) {
             requests.map((request) => <NotificationCard key={request.id} request={request} />)
           ) : (
             <Typography className={styles.noNotifications}>
-              No new notifications
+              No New Notifications
             </Typography>
           )
         ) : (

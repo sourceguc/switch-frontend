@@ -1,7 +1,17 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
+    main: {
+        [theme.breakpoints.up("md")]: {
+          width: "100%",
+          marginLeft: "1em"
+        }
+    },
+    toolbar: {
+      padding: "0em"
+    },
     paragraph: {
+        paddingLeft: "1em",
         fontSize: "11px",
         textAlign: '-webkit-left',
         [theme.breakpoints.up("md")]: {
@@ -11,6 +21,9 @@ export const useStyles = makeStyles((theme) => ({
     subtitle: {
         fontSize: "15px",
         textAlign: '-webkit-left',
+        [theme.breakpoints.up("md")]: {
+          fontSize: "20px"
+        }
       },
       button: {
         borderColor: "#000000",
@@ -25,6 +38,9 @@ export const useStyles = makeStyles((theme) => ({
       width: "24.5em",
       padding: "0.4em",
       border: '1px solid #62BF84',
+      [theme.breakpoints.up("md")]: {
+        width: "95%",
+      }
     },
     modal: {
         display: 'flex',
@@ -43,7 +59,7 @@ export const useStyles = makeStyles((theme) => ({
     schedule: {
         width: "320px",
         [theme.breakpoints.up("md")]: {
-            width: "450px",
+            width: "500px",
         }
     },
     avatar: {
