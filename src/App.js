@@ -5,6 +5,7 @@ import Notifications from "./pages/notifications"
 import Profile from "./pages/profile"
 import Login from "./pages/login"
 import Form from "./pages/form"
+import Error404 from "./pages/error404"
 import { ThemeProvider } from "@material-ui/core/styles";
 import Theme from "./theme";
 import useStyles from "./globalStyle";
@@ -42,6 +43,7 @@ function App() {
           <Route path="/profile" render={()=> (<Profile/>)} />
           <Route path="/login" render={()=> (<Login/>)} />
           <Route path="/signup" render={()=> (<Form/>)} />
+          <Route path="*" exact={true} component={Error404} />
         </Switch>
       </div>
       </Router>

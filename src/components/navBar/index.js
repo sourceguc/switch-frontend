@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useStyles from "./style";
-import { AppBar, Toolbar, Typography, IconButton, Tooltip, Badge, Grid, Modal, Backdrop, Fade } from "@material-ui/core";
+import { AppBar, Toolbar, Typography, IconButton, Tooltip, Badge, Grid, Modal, Backdrop, Fade, Link } from "@material-ui/core";
 import Request from '../request'
 
 function NavBar(props) {
@@ -38,9 +38,11 @@ function NavBar(props) {
                         container 
                         direction="row" 
                         className={styles.gridTitle}>
-                        <Typography className={styles.text}>
-                            SWITCH ME
-                        </Typography>
+                        <Link href="/" underline="none" className={styles.link}>
+                            <Typography className={styles.text} >
+                                SWITCH ME
+                            </Typography>
+                        </Link>
                     </Grid>
                     
                         <Grid 
@@ -58,7 +60,7 @@ function NavBar(props) {
 
                             <Grid item xs={2} md={1}>
                                 <Tooltip title="Filter">
-                                    <IconButton className={styles.icon} color="primary" href="filter">
+                                    <IconButton className={styles.icon} color="primary">
                                         <ion-icon name="funnel" class={styles.ionIcon}></ion-icon>
                                     </IconButton>
                                 </Tooltip>
@@ -66,7 +68,7 @@ function NavBar(props) {
 
                             <Grid item xs={2} md={1}>
                                 <Tooltip title="My Account">
-                                    <IconButton className={styles.icon} color="primary" href="account">
+                                    <IconButton className={styles.icon} color="primary" href="profile">
                                         <ion-icon name="person" class={styles.ionIcon}></ion-icon>
                                     </IconButton>
                                 </Tooltip>

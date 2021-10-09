@@ -140,6 +140,7 @@ export default function HorizontalLabelPositionBelowStepper() {
                 process!
               </h3>
               <TextField
+                type={"email"}
                 id="email"
                 label="GUC Email"
                 value={email}

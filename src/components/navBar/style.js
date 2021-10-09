@@ -50,6 +50,9 @@ export const useStyles = makeStyles((theme)=>({
     outline:'0',
     textAlign: center
   },
+  link: {
+    color: "white"
+  }
 }));
 
 export default useStyles;
