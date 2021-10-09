@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
-
+const isFirefox = typeof InstallTrigger !== 'undefined';
+const left = isFirefox ? '-moz-left' : '-webkit-left';
 export const useStyles = makeStyles((theme) => ({
     main: {
       width: "100%",
@@ -10,7 +11,7 @@ export const useStyles = makeStyles((theme) => ({
     paragraph: {
         paddingLeft: "2em",
         fontSize: "12px",
-        textAlign: '-webkit-left',
+        textAlign: left,
         [theme.breakpoints.up("md")]: {
           fontSize: "20px"
         }

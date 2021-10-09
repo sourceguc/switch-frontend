@@ -13,8 +13,7 @@ const useStyles = makeStyles((theme) => ({
       position: "fixed",
       zIndex: "5",
       [theme.breakpoints.up("md")]: {
-        textAlign: "-webkit-center",
-        textAlign: '-moz-center',
+        textAlign: center,
         top: "1em",
         width: "10em !important auto",
         fontSize: "2em",
