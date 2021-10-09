@@ -134,7 +134,8 @@ export default function HorizontalLabelPositionBelowStepper() {
               justiyContent="center"
               direction="column"
               required
-              className={styles.textFieldGrid}>
+              className={styles.textFieldGrid}
+            >
               <h3 style={{ fontWeight: 100 }}>
                 Please Enter The Infromation Needed To Facilitate the Switching
                 process!
@@ -171,7 +172,8 @@ export default function HorizontalLabelPositionBelowStepper() {
                   native: true,
                 }}
                 helperText="Select you Major"
-                className={styles.textField}>
+                className={styles.textField}
+              >
                 {majors.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
@@ -202,7 +204,8 @@ export default function HorizontalLabelPositionBelowStepper() {
               alignItems="center"
               justiyContent="center"
               direction="column"
-              className={styles.textFieldGrid}>
+              className={styles.textFieldGrid}
+            >
               <h3 style={{ fontWeight: 100, textAlign: "center" }}>
                 The following Info Is Not Required, But Would Help Us Find You
                 <br />
@@ -257,7 +260,8 @@ export default function HorizontalLabelPositionBelowStepper() {
       <Stepper
         activeStep={activeStep}
         className={styles.stepper}
-        alternativeLabel>
+        alternativeLabel
+      >
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
@@ -269,13 +273,15 @@ export default function HorizontalLabelPositionBelowStepper() {
         alignItems="center"
         justiyContent="center"
         direction="column"
-        style={{ gap: "1em" }}>
+        style={{ gap: "1em" }}
+      >
         {getStepContent(activeStep)}
         <div>
           <Button
             disabled={activeStep === 0}
             onClick={handleBack}
-            className={styles.backButton}>
+            className={styles.backButton}
+          >
             Back
           </Button>
           <Button
@@ -283,7 +289,8 @@ export default function HorizontalLabelPositionBelowStepper() {
             color="primary"
             onClick={
               activeStep === steps.length - 1 ? handleFinish : handleNext
-            }>
+            }
+          >
             {activeStep === steps.length - 1 ? "Finish" : "Next"}
           </Button>
         </div>
