@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core";
-
+const isFirefox = typeof InstallTrigger !== 'undefined';
+const center = isFirefox ? '-moz-center' : '-webkit-center';
 const useStyles = makeStyles((theme) => ({
     title: {
       fontFamily: "Source",
@@ -13,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
       zIndex: "5",
       [theme.breakpoints.up("md")]: {
         textAlign: "-webkit-center",
+        textAlign: '-moz-center',
         top: "1em",
         width: "10em !important auto",
         fontSize: "2em",
@@ -55,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     },
     container: {
       [theme.breakpoints.up("md")]: {
-        textAlign: "-webkit-center",
+        textAlign: center,
         height: "85%",
         marginTop: "3.5em",
       },

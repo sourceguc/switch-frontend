@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
-
+const isFirefox = typeof InstallTrigger !== 'undefined';
+const center = isFirefox ? '-moz-center' : '-webkit-center';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: "100%",
@@ -21,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   error: {
     color: "red",
-    textAlign: "-webkit-center",
+    textAlign: center
   },
   textField: {
     [theme.breakpoints.up("sm")]: {
