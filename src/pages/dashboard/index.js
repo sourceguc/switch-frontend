@@ -3,46 +3,45 @@ import SwitchCard from "../../components/switchCard";
 import useStyles from "./styles";
 import NavBar from "../../components/navBar";
 import PoweredBySource from "../../components/poweredBySource";
-import {
-  Grid,
-  Typography,
-  TextField,
-  FormControl,
-  RadioGroup,
-  Radio,
-  FormControlLabel,
-} from "@material-ui/core";
+import { Grid, Typography, TextField } from "@material-ui/core";
 
 function Dashboard({ switchers }) {
-  const [results, setResults] = useState(switchers);
-  const [search, setSearch] = useState("");
-  const [radioValue, setRadioValue] = useState("From");
+  const dbResults = switchers;
+  const [results, setResults] = useState(dbResults);
+  const [from, setFrom] = useState("");
+  const [to, setTo] = useState("");
+  const [name, setName] = useState("");
 
   const styles = useStyles();
 
-  const handleRadioChange = (str) => {
-    setRadioValue(str);
-    handleChange(search);
-  };
-
-  const handleChange = (str) => {
-    setSearch(str);
-    console.log("evnt:", str);
-    if (str === "") {
-      setResults(switchers);
+  const handleChange = (str, trigger) => {
+    switch (trigger) {
+      case "from":
+        setFrom(str);
+        break;
+      case "to":
+        setTo(str);
+        break;
+      case "name":
+        setName(str);
+        break;
+    }
+    console.log("from: ", from, "\nto: ", to, "\nname:", name);
+    function filterFrom(user) {
+      return from ? user.from.toLowerCase().includes(from.toLowerCase()) : true;
+    }
+    function filterTo(user) {
+      return to ? user.to.toLowerCase().includes(to.toLowerCase()) : true;
+    }
+    function filterName(user) {
+      return name ? user.name.toLowerCase().includes(name.toLowerCase()) : true;
+    }
+    let res = results.filter(filterFrom);
+    res = res.filter(filterTo);
+    res = res.filter(filterName);
+    if (from === "" && to === "" && name === "") {
+      setResults(dbResults);
     } else {
-      var res = [];
-      if (radioValue === "From") {
-        res = results.filter((user) => {
-          return user.from.toLowerCase().includes(str.toLowerCase());
-        });
-      } else if (radioValue === "To") {
-        res = results.filter((user) => user.to.includes(str.toLowerCase()));
-      } else if (radioValue === "Name") {
-        res = results.filter((user) =>
-          user.name.toLowerCase().includes(str.toLowerCase())
-        );
-      }
       setResults(res);
     }
   };
@@ -64,50 +63,51 @@ function Dashboard({ switchers }) {
       >
         <div className={styles.searchgroup}>
           <form className={styles.searchOutline} noValidate autoComplete="off">
-            <TextField
-              id="outlined-basic"
-              label="Search"
-              variant="outlined"
-              fullWidth
-              value={search}
-              onChange={(e) => handleChange(e.target.value)}
-            />
+            <Grid container justifyContent="flex-start" spacing={2}>
+              <Grid item xs={6}>
+                <TextField
+                  id="outlined-basic"
+                  label="From"
+                  variant="outlined"
+                  fullWidth
+                  value={from}
+                  onChange={(e) => handleChange(e.target.value, "from")}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  id="outlined-basic"
+                  label="To"
+                  variant="outlined"
+                  fullWidth
+                  value={to}
+                  onChange={(e) => handleChange(e.target.value, "to")}
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <TextField
+                  id="outlined-basic"
+                  label="Name"
+                  variant="outlined"
+                  fullWidth
+                  value={name}
+                  onChange={(e) => handleChange(e.target.value, "name")}
+                />
+              </Grid>
+            </Grid>
           </form>
-
-          <FormControl component="fieldset" className={styles.buttons}>
-            <RadioGroup
-              row
-              aria-label="position"
-              name="position"
-              defaultValue="From"
-              value={radioValue}
-            >
-              <FormControlLabel
-                value="From"
-                control={<Radio color="primary" />}
-                label="From"
-                onClick={() => handleRadioChange("From")}
-              />
-              <FormControlLabel
-                value="To"
-                control={<Radio color="primary" />}
-                label="To"
-                onClick={() => handleRadioChange("To")}
-              />
-              <FormControlLabel
-                value="Name"
-                control={<Radio color="primary" />}
-                label="Name"
-                onClick={() => handleRadioChange("Name")}
-              />
-            </RadioGroup>
-          </FormControl>
         </div>
+          
         {switchers ? (
           results.length > 0 ? (
-            results.map((switcher) => (
-              <SwitchCard key={switcher.id} switcher={switcher} />
+            <Grid container justifyContent="flex-start" spacing={2}>
+            {results.map((switcher) => (
+              <Grid item xs={12}>
+                <SwitchCard key={switcher.id} switcher={switcher} />
+              </Grid>
             ))
+            }
+            </Grid>
           ) : (
             <Typography className={styles.noNotifications}>
               No Switch Requests Available
@@ -120,10 +120,12 @@ function Dashboard({ switchers }) {
             Please Contact Support!
           </Typography>
         )}
+
         <div className={styles.sourcelogo}></div>
         <div className={styles.poweredbysource}>
           <PoweredBySource />
         </div>
+        
       </Grid>
     </Grid>
   );
