@@ -8,11 +8,12 @@ function Arrow(props) {
       viewBox="0 0 63 58"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={props.style}>
+      className={props.style}
+    >
       <g filter="url(#filter0_d)">
         <path
           d="M28.2486 25.7769L62.5216 30.4865L46.5 40L41.3064 57.813L28.2486 25.7769Z"
-          fill={props.color||"#51E5FF"}
+          fill={props.color || "#51E5FF"}
         />
       </g>
       <defs>
@@ -23,7 +24,8 @@ function Arrow(props) {
           width="63.4606"
           height="56.8474"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB">
+          color-interpolation-filters="sRGB"
+        >
           <feFlood flood-opacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"

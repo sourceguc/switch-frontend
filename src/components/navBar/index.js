@@ -1,37 +1,50 @@
 import React, { useState } from "react";
 import useStyles from "./style";
-import { AppBar, Toolbar, Typography, IconButton, Tooltip, Badge, Grid, Modal, Backdrop, Fade, Link } from "@material-ui/core";
-import Request from '../request'
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  IconButton,
+  Tooltip,
+  Badge,
+  Grid,
+  Modal,
+  Backdrop,
+  Fade,
+  Link
+} from "@material-ui/core";
+import Request from "../request";
 
 function NavBar(props) {
-    const styles = useStyles();
-    const [modalView, setModalView] = useState(false)
-    const handleOpen = () => (
-        setModalView(true)
-    )
-    const handleClose = () => (
-        setModalView(false)
-    )
-    return (
-        <AppBar color="secondary" className={styles.appBar}>
-            <Modal
-                open={modalView}
-                onClose={handleClose}
-                aria-labelledby="transition-modal-title"
-                aria-describedby="transition-modal-description"
-                className={styles.modal}
-                closeAfterTransition
-                BackdropComponent={Backdrop}
-                BackdropProps={{
-                    timeout:500
-                }}>
+  const styles = useStyles();
+  const [modalView, setModalView] = useState(false);
+  const handleOpen = () => setModalView(true);
+  const handleClose = () => setModalView(false);
+  return (
+    <AppBar color="secondary" className={styles.appBar}>
+      <Modal
+        open={modalView}
+        onClose={handleClose}
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        className={styles.modal}
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+      >
+        <Fade in={modalView}>
+          <div className={styles.paper}>
+            <Request />
+          </div>
+        </Fade>
+      </Modal>
 
-                <Fade in={modalView}>
-                    <div className={styles.paper}>
-                       <Request/> 
-                    </div>
-                </Fade>
-            </Modal>    
+      <Toolbar>
+        <Grid container direction="row" className={styles.gridTitle}>
+          <Typography className={styles.text}>SWITCH ME</Typography>
+        </Grid>
 
                 <Toolbar>
                     <Grid
@@ -74,19 +87,32 @@ function NavBar(props) {
                                 </Tooltip>
                             </Grid>
 
-                            <Grid item xs={2} md={1}>
-                                <Tooltip title="Notifications">
-                                    <IconButton className={styles.icon} color="primary" href="notifications">
-                                        <Badge badgeContent={parseInt(props.notifications) ? props.notifications : 0} color='primary' classes={{badge: styles.badge}}>
-                                            <ion-icon name="notifications" class={styles.ionIcon}></ion-icon>
-                                        </Badge>
-                                    </IconButton>
-                                </Tooltip>
-                            </Grid>    
-                        </Grid>
-                </Toolbar>
-        </AppBar>
-        )
+          <Grid item xs={2} md={1}>
+            <Tooltip title="Notifications">
+              <IconButton
+                className={styles.icon}
+                color="primary"
+                href="notifications"
+              >
+                <Badge
+                  badgeContent={
+                    parseInt(props.notifications) ? props.notifications : 0
+                  }
+                  color="primary"
+                  classes={{ badge: styles.badge }}
+                >
+                  <ion-icon
+                    name="notifications"
+                    class={styles.ionIcon}
+                  ></ion-icon>
+                </Badge>
+              </IconButton>
+            </Tooltip>
+          </Grid>
+        </Grid>
+      </Toolbar>
+    </AppBar>
+  );
 }
 
-export default NavBar
+export default NavBar;
