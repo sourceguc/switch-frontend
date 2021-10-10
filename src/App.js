@@ -1,5 +1,11 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Dashboard from "./pages/dashboard";
+import Notifications from "./pages/notifications"
+import Profile from "./pages/profile"
+import Login from "./pages/login"
+import Form from "./pages/form"
+import Error404 from "./pages/error404"
 import { ThemeProvider } from "@material-ui/core/styles";
 import Theme from "./theme";
 import useStyles from "./globalStyle";
@@ -35,9 +41,18 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Router>
       <div className={style.root}>
-        <Dashboard switchers={switchers} />
+        <Switch>
+          <Route path="/" exact render={()=> (<Dashboard switchers={switchers}/>)} />
+          <Route path="/notifications" render={()=> (<Notifications requests={switchers}/>)} />
+          <Route path="/profile" render={()=> (<Profile/>)} />
+          <Route path="/login" render={()=> (<Login/>)} />
+          <Route path="/signup" render={()=> (<Form/>)} />
+          <Route path="*" exact={true} component={Error404} />
+        </Switch>
       </div>
+      </Router>
     </ThemeProvider>
   );
 }
