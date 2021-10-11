@@ -1,6 +1,8 @@
 import { makeStyles } from "@material-ui/core/styles";
+
 const isFirefox = typeof InstallTrigger !== 'undefined';
 const center = isFirefox ? '-moz-center' : '-webkit-center';
+
 const useStyles = makeStyles((theme) => ({
   container: {
     [theme.breakpoints.up("md")]: {

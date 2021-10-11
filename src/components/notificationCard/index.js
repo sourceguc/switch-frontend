@@ -45,8 +45,5 @@ function NotificationCard({request}) {
                 </Toolbar>
             </Grid>
             <br />
-            </Grid>
-    )
-}
 
-export default NotificationCard
+export default NotificationCard;

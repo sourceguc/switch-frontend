@@ -1,4 +1,5 @@
 import { makeStyles } from "@material-ui/core";
+
 const isFirefox = typeof InstallTrigger !== 'undefined';
 const center = isFirefox ? '-moz-center' : '-webkit-center';
 const useStyles = makeStyles((theme) => ({
@@ -78,6 +79,7 @@ const useStyles = makeStyles((theme) => ({
     buttons: {
       paddingLeft: "1em"
       }
+
 }));
 
 export default useStyles;
