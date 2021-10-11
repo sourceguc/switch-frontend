@@ -16,16 +16,14 @@ function Login() {
         direction="column"
         justifyContent="center"
         alignItems="center"
-        className={styles.loginContainer}
-      >
+        className={styles.loginContainer}>
         <img src={Source} alt="switching people" style={{ zIndex: 5 }} />
         <Grid
           container
           direction="column"
           justifyContent="center"
           alignItems="center"
-          className={styles.textContainer}
-        >
+          className={styles.textContainer}>
           <h1 className={styles.title}>Switch me</h1>
           <div className={styles.paragraph}>
             No more headaches, using switch me
@@ -38,8 +36,7 @@ function Login() {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          className={styles.buttonContainer}
-        >
+          className={styles.buttonContainer}>
           <Button
             icon={<ion-icon name="logo-facebook" />}
             text={"LOGIN WITH FACEBOOK"}

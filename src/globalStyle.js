@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     right: 0,
     color: "#FFFFFF",
     fontFamily: "Roboto",
-    zIndex: 0,
+    zIndex:0
   },
 });
 

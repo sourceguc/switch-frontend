@@ -9,8 +9,7 @@ function IconButton(props) {
       variant="outlined"
       color="primary"
       startIcon={props.icon}
-      className={styles.iconButton}
-    >
+      className={styles.iconButton}>
       {props.text}
     </Button>
   );

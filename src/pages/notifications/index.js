@@ -24,9 +24,7 @@ function Notifications({ requests }) {
         <div className={styles.spacer}></div>
         {requests ? (
           requests.length > 0 ? (
-            requests.map((request) => (
-              <NotificationCard key={request.id} request={request} />
-            ))
+            requests.map((request) => <NotificationCard key={request.id} request={request} />)
           ) : (
             <Typography className={styles.noNotifications}>
               No New Notifications
